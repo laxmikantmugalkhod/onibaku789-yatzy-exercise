@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class YatzyJava {
+public class Yatzy {
 
     public static int chance(int... dice) {
         return Arrays.stream(dice).sum();
@@ -69,6 +69,17 @@ public class YatzyJava {
 
     public static int largeStraight(int... dice) {
         return Arrays.stream(dice).sorted().boxed().toList().equals(List.of(2, 3, 4, 5, 6)) ? 20 : 0;
+    }
+
+    public static int fullHouse(int... dice) {
+        Map<Integer, Long> counts = Arrays.stream(dice)
+                .boxed()
+                .collect(Collectors.groupingBy(d -> d, Collectors.counting()));
+
+        boolean hasThree = counts.containsValue(3L);
+        boolean hasTwo = counts.containsValue(2L);
+
+        return hasThree && hasTwo ? Arrays.stream(dice).sum() : 0;
     }
 
     private static int calculateGroupedDiceScore(int[] dice, int groupSize, int requiredGroupCount) {
