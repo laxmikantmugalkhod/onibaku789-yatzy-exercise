@@ -30,4 +30,15 @@ public class YatzyJavaTest {
         assertEquals(18, YatzyJava.sixes(6, 5, 6, 6, 5));
     }
 
+    @Test
+    public void testScorePair() {
+        assertEquals(6, YatzyJava.score_pair(3, 4, 3, 5, 6));
+    }
+
+    @Test
+    public void testTwoPair() {
+        assertEquals(16, YatzyJava.two_pair(3, 3, 5, 4, 5));
+        assertEquals(0, YatzyJava.two_pair(1, 2, 3, 4, 5));
+    }
+
 }

@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -43,5 +45,30 @@ public class YatzyJava {
         return (int) Arrays.stream(dice)
                 .filter(d -> d == number)
                 .count() * number;
+    }
+
+    public static int score_pair(int... dice) {
+        return calculateGroupedDiceScore(dice, 2, 1);
+    }
+
+    public static int two_pair(int... dice) {
+        return calculateGroupedDiceScore(dice, 2, 2);
+    }
+
+    private static int calculateGroupedDiceScore(int[] dice, int groupSize, int requiredGroupCount) {
+        Map<Integer, Long> counts = Arrays.stream(dice)
+                .boxed()
+                .collect(Collectors.groupingBy(d -> d, Collectors.counting()));
+
+        List<Integer> groups = counts.entrySet().stream()
+                .filter(e -> e.getValue() >= groupSize)
+                .map(Map.Entry::getKey)
+                .sorted(Comparator.reverseOrder())
+                .limit(requiredGroupCount)
+                .toList();
+
+        return groups.size() == requiredGroupCount
+                ? groups.stream().mapToInt(val -> val * groupSize).sum()
+                : 0;
     }
 }
