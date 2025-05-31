@@ -51,4 +51,10 @@ public class YatzyJavaTest {
         assertEquals(12, YatzyJava.fourOfAKind(3, 3, 3, 3, 5));
     }
 
+    @Test
+    public void testStraights() {
+        assertEquals(15, YatzyJava.smallStraight(1, 2, 3, 4, 5));
+        assertEquals(20, YatzyJava.largeStraight(2, 3, 4, 5, 6));
+    }
+
 }

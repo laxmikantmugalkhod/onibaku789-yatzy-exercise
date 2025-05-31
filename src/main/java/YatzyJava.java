@@ -63,6 +63,14 @@ public class YatzyJava {
         return calculateGroupedDiceScore(dice, 4, 1);
     }
 
+    public static int smallStraight(int... dice) {
+        return Arrays.stream(dice).sorted().boxed().toList().equals(List.of(1, 2, 3, 4, 5)) ? 15 : 0;
+    }
+
+    public static int largeStraight(int... dice) {
+        return Arrays.stream(dice).sorted().boxed().toList().equals(List.of(2, 3, 4, 5, 6)) ? 20 : 0;
+    }
+
     private static int calculateGroupedDiceScore(int[] dice, int groupSize, int requiredGroupCount) {
         Map<Integer, Long> counts = Arrays.stream(dice)
                 .boxed()
