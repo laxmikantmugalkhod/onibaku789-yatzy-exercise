@@ -1,1 +1,2 @@
 # onibaku789-yatzy-exercise
+This project is a Java implementation of the Yatzy dice game scorer. It provides methods to calculate the score for various Yatzy scoring categories based on the given dice rolls.
