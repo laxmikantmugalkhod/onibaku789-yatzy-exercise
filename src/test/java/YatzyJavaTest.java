@@ -32,13 +32,23 @@ public class YatzyJavaTest {
 
     @Test
     public void testScorePair() {
-        assertEquals(6, YatzyJava.score_pair(3, 4, 3, 5, 6));
+        assertEquals(6, YatzyJava.scorePair(3, 4, 3, 5, 6));
     }
 
     @Test
     public void testTwoPair() {
-        assertEquals(16, YatzyJava.two_pair(3, 3, 5, 4, 5));
-        assertEquals(0, YatzyJava.two_pair(1, 2, 3, 4, 5));
+        assertEquals(16, YatzyJava.twoPair(3, 3, 5, 4, 5));
+        assertEquals(0, YatzyJava.twoPair(1, 2, 3, 4, 5));
+    }
+
+    @Test
+    public void testThreeOfAKind() {
+        assertEquals(9, YatzyJava.threeOfAKind(3, 3, 3, 4, 5));
+    }
+
+    @Test
+    public void testFourOfAKind() {
+        assertEquals(12, YatzyJava.fourOfAKind(3, 3, 3, 3, 5));
     }
 
 }

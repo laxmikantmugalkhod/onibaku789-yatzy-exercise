@@ -47,12 +47,20 @@ public class YatzyJava {
                 .count() * number;
     }
 
-    public static int score_pair(int... dice) {
+    public static int scorePair(int... dice) {
         return calculateGroupedDiceScore(dice, 2, 1);
     }
 
-    public static int two_pair(int... dice) {
+    public static int twoPair(int... dice) {
         return calculateGroupedDiceScore(dice, 2, 2);
+    }
+
+    public static int threeOfAKind(int... dice) {
+        return calculateGroupedDiceScore(dice, 3, 1);
+    }
+
+    public static int fourOfAKind(int... dice) {
+        return calculateGroupedDiceScore(dice, 4, 1);
     }
 
     private static int calculateGroupedDiceScore(int[] dice, int groupSize, int requiredGroupCount) {
